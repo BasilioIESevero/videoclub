@@ -1,0 +1,38 @@
+DROP DATABASE IF EXISTS videoclub;
+
+CREATE DATABASE videoclub
+CHARACTER SET utf8
+COLLATE utf8_spanish_ci;
+
+USE videoclub;
+
+CREATE TABLE cliente(
+	id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	nombre VARCHAR(150) NOT NULL,
+	dni VARCHAR(9) UNIQUE NOT NULL,
+	apellido VARCHAR(150) NOT NULL,
+	direccion VARCHAR(150) DEFAULT NULL
+);
+
+CREATE TABLE producto(
+	id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	nombre VARCHAR(150) NOT NULL,
+	precio DECIMAL(10,2) NOT NULL,
+	tipo ENUM('CD','Pelicula','Juego') NOT NULL,
+	genero VARCHAR(150) DEFAULT NULL,
+	plataforma VARCHAR(150) DEFAULT NULL,
+	duracion INTEGER UNSIGNED DEFAULT NULL,
+	idioma VARCHAR(150) DEFAULT NULL
+);
+
+CREATE TABLE alquilado(
+	id_cliente BIGINT UNSIGNED NOT NULL,
+	id_producto BIGINT UNSIGNED NOT NULL,
+	fecha_alquiler DATETIME NOT NULL,
+	fecha_devolucion DATETIME NOT NULL,
+	PRIMARY KEY(id_cliente, id_producto, fecha_alquiler),
+	CONSTRAINT fk_alq_cli FOREIGN KEY(id_cliente)
+	REFERENCES cliente(id) ON DELETE NO ACTION,
+	CONSTRAINT fk_alq_pro FOREIGN KEY(id_producto)
+	REFERENCES producto(id) ON DELETE NO ACTION
+);
