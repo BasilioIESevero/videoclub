@@ -6,12 +6,15 @@ class Videoclub
 {
 	private array $productos;
 	private array $clientes;
+	private array $alquilados;
 
-	public function __construct(array $productos, array $clientes)
+	public function __construct(array $clientes, array $productos ,array $alquilados)
 	{
 		$this->productos = $productos;
 		$this->clientes = $clientes;
+		$this->alquilados = $alquilados;
 	}
+
 
 	public function __tostring(): string
 	{

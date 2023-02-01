@@ -12,14 +12,14 @@ if (isset($_REQUEST["evento"])){
   $mostrarDatos=true;
   switch ($_REQUEST["evento"]){
     case "todos":
-      $clientes = $controlador->listar();
+      $clientes = $controlador->listAll();
       $mostrarDatos=true;
       break;
     case "filtrar":
       $texto=($_REQUEST["busqueda"])??"";
-      $clientes = $controlador->get($texto);
+      $clientes = $controlador->list($texto);
       break;
-    case "borrar":
+    case "remove":
       $visibilidad = "visibility";
       $mostrarDatos=true;
       $clase = "alert alert-success";

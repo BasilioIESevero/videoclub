@@ -6,5 +6,5 @@ if (!isset ($_REQUEST["id"])) header('Location:index.php' );
 $id=$_REQUEST["id"];
 
 $controlador= new ClienteController();
-$controlador->delete($id);
+$controlador->remove($id);
 

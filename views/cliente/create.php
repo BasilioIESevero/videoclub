@@ -14,7 +14,7 @@ if (isset($_REQUEST["error"])){
 }
 ?>
 <div class="alert alert-danger <?=$visibilidad?>" ><?=$cadena?></div>
-<form action="index.php?accion=store&evento=create&tabla=cliente" method="POST">
+<form action="index.php?accion=store&evento=include&tabla=cliente" method="POST">
   <div class="form-group">
     <label for="nombre">Cliente </label>
     <input type="text"  required class="form-control" id="nombre" name="nombre" aria-describedby="nombre" placeholder="Introduce nombre" value="<?= $_SESSION["datos"]["nombre"]??"" ?>"
@@ -27,18 +27,15 @@ if (isset($_REQUEST["error"])){
   </div>
   <div class="form-group">
   <label for="apellido">Apellido de Cliente </label>
-  <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Introduce el apellido del cliente" value="<?= $_SESSION["datos"]["dni"]??"" ?>">
+  <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Introduce el apellido del cliente" value="<?= $_SESSION["datos"]["apellido"]??"" ?>">
     <?=isset($errores["apellido"])?'<div class="alert alert-danger" role="alert">'. DibujarErrores($errores,"apellido").'</div>':"";?>
   </div>
   <div class="form-group">
   <label for="direccion">Direccion de Cliente </label>
-  <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Introduce el direccion del cliente" value="<?= $_SESSION["datos"]["dni"]??"" ?>">
+  <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Introduce el direccion del cliente" value="<?= $_SESSION["datos"]["direccion"]??"" ?>">
     <?=isset($errores["direccion"])?'<div class="alert alert-danger" role="alert">'. DibujarErrores($errores,"direccion").'</div>':"";?>
   </div>
     <button type="submit" class="btn btn-primary">Guardar</button>
   <a class="btn btn-danger" href="index.php">Cancelar</a>
 </form>
 
-<?php
-$_SESSION=[];
-?>

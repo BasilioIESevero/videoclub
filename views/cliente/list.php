@@ -37,15 +37,14 @@ if (isset($_REQUEST["evento"]) && $_REQUEST["evento"] == "borrar") {
     </tr>
   </thead>
   <tbody>
-<?php foreach($clientes as $cliente):
-        $id=$cliente["id"];
+<?php foreach($clientes as $id=>$cliente):
   ?>
     <tr>
-      <td><?=$cliente["id"]?></td>
-      <td><?=$cliente["nombre"]?></td>
-      <td><?=$cliente["dni"]?></td>
-      <td><?=$cliente["apellido"]?></td>
-      <td><?=$cliente["direccion"]?></td>
+      <td><?=$id?></td>
+      <td><?=$cliente->get_nombre()?></td>
+      <td><?=$cliente->get_apellido()?></td>
+      <td><?=$cliente->get_dni()?></td>
+      <td><?=$cliente->get_direccion()?></td>
       <td><a class="btn btn-danger" href="index.php?accion=delete&tabla=cliente&id=<?=$id?>"><i class="fa fa-trash"></i> Borrar</a></td>
       <td><a class="btn btn-success" href="index.php?accion=edit&tabla=cliente&id=<?=$id?>"><i class="fa fa-pencil"></i> Editar</a></td>
     </tr>

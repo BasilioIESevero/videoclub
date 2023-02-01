@@ -1,5 +1,6 @@
 <?php
-require_once("views/menu/head.php");
+require_once "views/menu/head.php";
+require_once "models/class/Videoclub.php";
 
 $tablasValidas = ["cliente"];
 
@@ -10,7 +11,7 @@ if (isset($_REQUEST["tabla"], $_REQUEST["accion"])) {
         require_once("views/404.php");
     } else {
         switch ($_REQUEST["accion"]) {
-            case "create":
+            case "include":
                 require_once("views/$tabla/create.php");
                 break;
             case "store":

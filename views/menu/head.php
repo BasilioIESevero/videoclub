@@ -30,7 +30,7 @@
                                 <li>
                                     <hr>
                                 </li>
-                                <li><a class="dropdown-item" href="index.php?accion=create&tabla=cliente">Añadir clientes</a></li>
+                                <li><a class="dropdown-item" href="index.php?accion=include&tabla=cliente">Añadir clientes</a></li>
                                 <li><a class="dropdown-item" href="index.php?accion=list&tabla=cliente">Listar clientes</a></li>
                             </ul>
                         </li>

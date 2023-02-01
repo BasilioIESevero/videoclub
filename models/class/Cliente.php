@@ -3,6 +3,7 @@ require_once 'Producto.php';
 
 class Cliente
 {
+	private ?string $id;
 	private string $nombre;
 	private string $apellido;
 	private string $dni;
@@ -11,6 +12,7 @@ class Cliente
 
 	public function __construct(string $nombre, string $apellido, string $dni, string $direccion)
 	{
+		$this->id=null;
 		$this->nombre = $nombre;
 		$this->apellido = $apellido;
 		$this->dni = $dni;
@@ -20,6 +22,11 @@ class Cliente
 	public function __tostring(): string
 	{
 		return $this->nombre . ' ' . $this->apellido;
+	}
+
+	public function get_id(): string
+	{
+		return $this->id;
 	}
 
 	public function get_nombre(): string
@@ -60,11 +67,22 @@ class Cliente
 	// 	];
 
 	// 	$this->get_alquileres()[$id] = $alquiler;
-	
+
 	// }
 
 	// public function devolver(int $id)
 	// {
 	// 	$this->get_alquileres()[$id]['fecha_devolucion'] = date('Y-m-d H-i-s');
 	// }
+	public function to_array(): array
+	{
+		$array = [
+			'nombre' => $this->nombre,
+			'apellido' => $this->apellido,
+			'dni' => $this->dni,
+			'direccion' => $this->direccion
+		];
+
+		return $array;
+	}
 }

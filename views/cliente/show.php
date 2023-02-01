@@ -5,7 +5,7 @@ if (!isset($_REQUEST['id'])){
 }
 $id=$_REQUEST['id'];
 $controlador= new ClienteController();
-$cliente= $controlador->get($id);
+$cliente= $controlador->list($id);
 ?>
 
 <div class="card" style="width: 18rem;">

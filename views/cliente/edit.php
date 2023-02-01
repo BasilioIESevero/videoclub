@@ -14,7 +14,7 @@ if (isset($_REQUEST["error"])){
 }
 ?>
 <div class="alert alert-danger <?=$visibilidad?>" ><?=$cadena?></div>
-<form action="index.php?accion=store&evento=create&tabla=cliente" method="POST">
+<form action="index.php?accion=store&evento=edit&tabla=cliente" method="POST">
   <div class="form-group">
     <label for="nombre">Cliente </label>
     <input type="text"  required class="form-control" id="nombre" name="nombre" aria-describedby="nombre" placeholder="Introduce nombre" value="<?= $_SESSION["datos"]["nombre"]??"" ?>"
@@ -39,6 +39,3 @@ if (isset($_REQUEST["error"])){
   <a class="btn btn-danger" href="index.php">Cancelar</a>
 </form>
 
-<?php
-$_SESSION=[];
-?>
